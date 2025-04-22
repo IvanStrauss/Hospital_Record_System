@@ -10,7 +10,7 @@ use App\Http\Controllers\DoctorController;
 
 
 Route::get('/', function () {
-    return view('layout.sidebar');
+    return view('auth.login');
 });
 
 // Show login form
