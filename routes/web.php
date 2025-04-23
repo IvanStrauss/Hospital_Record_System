@@ -85,3 +85,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::resource('doctors', DoctorController::class);
+});

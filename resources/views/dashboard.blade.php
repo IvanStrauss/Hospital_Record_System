@@ -79,10 +79,10 @@ ul.recent-list li {
 
 
   <!-- Chart -->
-  <section>
+  {{-- <section>
     <h2>Appointments Per Day</h2>
     <canvas id="appointmentsChart" width="100%" height="80"></canvas>
-  </section>
+  </section> --}}
 
   <!-- Recent Entries -->
   <section>
