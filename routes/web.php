@@ -7,6 +7,7 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\AdminController;
 
 
 Route::get('/', function () {
@@ -61,3 +62,26 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+});
+
+// Doctor Dashboard
+Route::middleware(['auth'])->group(function () {
+    Route::get('/doctor-dashboard', function () {
+        return view('doctor-dashboard');
+    })->name('doctor.dashboard');
+});
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/doctor-dashboard', function () {
+        return view('doctor-dashboard'); // You can customize this view
+    })->name('doctor.dashboard');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+});
+

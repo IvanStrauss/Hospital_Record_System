@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    //
     public function showLoginForm()
     {
         return view('auth.login');
@@ -22,11 +21,17 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard'); // ✅ Customize redirect
 
-            //return redirect()->route('dashboard');
+            $user = auth()->user();
+
+    if ($user && $user->role === 'doctor') {
+        return redirect()->route('doctor.dashboard');
+    }
+
+    return redirect()->intended('/dashboard');
         }
 
+        // 🔒 Invalid credentials
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);

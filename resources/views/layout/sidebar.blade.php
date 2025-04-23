@@ -86,6 +86,7 @@ body {
     padding: 10px;
     border-radius: 10px;
     transition: background-color 0.3s;
+    margin-bottom: 30px;
 
 }
 
